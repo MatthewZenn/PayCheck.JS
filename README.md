@@ -9,7 +9,7 @@ Implementation of the library is as easy as linking the JavaScript file in your 
 
 ```javascript
     try {
-        Luhn(field.value, 5, 2);
+        Luhn(input, check, multiple);
     } 
     catch(err) {
         alert(err);
