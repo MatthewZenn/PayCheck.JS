@@ -13,7 +13,7 @@ CardName = {
  * @param {int} multiple - The multiple to be used in the calculation.
  */
 function IsValidLength(input) {
-    return input.length == 16 || input.length == 14;
+    return input.length <= 16 || input.length >= 13;
 }
 
 function GetCardVendor(input) {
