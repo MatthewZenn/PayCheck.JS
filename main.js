@@ -3,11 +3,20 @@ var go = document.getElementById('button');
 var text = document.getElementById('message');
 
 go.addEventListener("click", () =>  {
+    text.innerHTML = check(field.value);
+});
+
+function check(input) {
     try {
-        var key = exports.CheckCard(field.value, 0, 2);
-        text.innerHTML = key;
+        if(!exports.IsValidLength(input)) {
+            return "Card length is not valid.";
+        }
+        if(!exports.ChecksumPasses(input)) {
+            return "Card number is not valid.";
+        }
+        return "Identified: " + exports.GetCardVendor(field.value);
     } 
     catch(err) {
-        text.innerHTML = err;
-    }   
-});
+        return err;
+    }
+}
