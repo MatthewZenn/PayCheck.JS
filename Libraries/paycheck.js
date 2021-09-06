@@ -31,7 +31,7 @@ function Luhn(input, check, multiple) {
         }
     }
     if (sum % 10 != check) {
-        throw "Checksum Error";
+        throw "Validation Error";
     }
     else {
         throw "Validation: PASSED\nIdentified: CARD";
