@@ -1,4 +1,4 @@
-![logo](https://github.com/MatthewZenn/PayCheck.JS/raw/main/Static/PayCheckJS.png)
+![logo](https://github.com/MatthewZenn/PayCheck.JS/raw/main/Static/PayCheckJS_small.png)
 # PayCheck.JS
 A credit card validation library written in JavaScript
 
