@@ -3,7 +3,7 @@
 A credit card validation library written in JavaScript
 
 PayCheck.js is a library for quick, client-side card validation, that checks for formatting and identifies the card company, similar to sites like Amazon.
-A demo of the library can be found [Here](https://matthewzenn.github.io/PayCheck.JS/). For security purposes, the demo library has been modifed and cannot validate actual card numbers.
+A demo of the library can be found [Here](https://matthewzenn.github.io/PayCheck.JS/).
 
 Implementation of the library is as easy as adding the library to your project and calling the function with your desired parameters.
 
