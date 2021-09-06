@@ -7,7 +7,7 @@ CardName = {
 };
 
 function Luhn(input, check, multiple) {
-    var digitList = [];// TODO: convert string to array of integers.
+    var digitList = [];
     var sum = 0;
 
     for(let i = 0; i < input.length; i++) {
@@ -33,7 +33,27 @@ function Luhn(input, check, multiple) {
     if (sum % 10 != check) {
         throw "Validation Error";
     }
-    else {
-        throw "Validation: PASSED\nIdentified: CARD";
+    
+    var keyFound = false;
+    var cardName = "";
+
+    for (var key in CardName) {
+        for(let i = 0; i < CardName[key].length; i++) {
+            if (CardName[key][i] == (input.substring(0,2))) {
+                keyFound = true;
+                cardName = key;
+            }
+        }
     }
+
+    if(!keyFound) {
+        throw "Identification Error"
+    }
+    else {
+        return cardName;
+    }
+}
+
+exports.CheckCard = (input, check, multiple) => {
+    return Luhn(input, check, multiple);
 }

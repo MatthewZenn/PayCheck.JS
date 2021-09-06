@@ -4,7 +4,8 @@ var text = document.getElementById('message');
 
 go.addEventListener("click", () =>  {
     try {
-        Luhn(field.value, 5, 2);
+        var key = exports.CheckCard(field.value, 0, 2);
+        text.innerHTML = key;
     } 
     catch(err) {
         text.innerHTML = err;
