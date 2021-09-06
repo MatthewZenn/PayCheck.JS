@@ -5,26 +5,30 @@ A credit card validation library written in JavaScript
 PayCheck.js is a library for quick, client-side card validation, that checks for formatting and identifies the card company, similar to sites like Amazon.
 A demo of the library can be found [Here](https://matthewzenn.github.io/PayCheck.JS/). For security purposes, the demo library has been modifed and cannot validate actual card numbers.
 
-Implementation of the library is as easy as linking the JavaScript file in your HTML code, and calling the function with your desired parameters.
+Implementation of the library is as easy as adding the library to your project and calling the function with your desired parameters.
 
 ```javascript
+function check(input) {
     try {
-        Luhn(input, check, multiple);
+        if(!exports.IsValidLength(input)) {
+            return "Card length is not valid.";
+        }
+        if(!exports.ChecksumPasses(input)) {
+            return "Card number is not valid.";
+        }
+        return "Identified: " + exports.GetCardVendor(field.value);
     } 
     catch(err) {
-        alert(err);
+        return err;
     }
+}
 ```
-
-- ```input``` links to your site's number field
-- ```check``` specfies the checksum digit
-- ```multiple``` specifies the operator value to be used for the algorithm.
-
-Paycheck also logs errors, making it easy to communicate to your users any problems with their details. The library logs 3 types of errors, which you can display in any way you see fit. A ```formatting error``` means the card length or format was inncorrect. While the algorthm does not check the length against card types, it can still be useful if too many characters are typed. A ```validation error``` means the card number failed the checksum test. The last error is an ```identification error``` that appears when the library cannot identify the card type. Due to the various forms of card payment, this does not necessarily mean the card is not valid. However, the check also returns the card type. So if your site's payment system only accepts certain brands, this check makes it easy to tell if the card type matches.
-
-There is a small bug in the library where setting the value of the input as a variable does not work. Instead you must set the object as your variable and pass it's value into the function like so.
+The input feild dhould be linked to your site's input method when you call the funtion, like so:
 
 ```javascript
-var input = document.getElementById('input');
-Luhn(input.value, check, multiple);
+your_button.addEventListener("click", () =>  {
+    text.innerHTML = check(your_input.value);
+});
 ```
+
+Paycheck also logs returns, making it easy to communicate to your users any problems with their details. The library logs 3 types of data, which you can display in any way you see fit. A ```formatting error``` means the card length or format was inncorrect. While the algorthm does not check the length against card types, it can still be useful if too many characters are typed. A ```validation error``` means the card number failed the checksum test. The last error is an ```identification error``` that appears when the library cannot identify the card type. Due to the various forms of card payment, this does not necessarily mean the card is not valid. However, the check also returns the card type. So if your site's payment system only accepts certain brands, this check makes it easy to tell if the card type matches.
